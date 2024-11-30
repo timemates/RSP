@@ -19,10 +19,32 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "rsproto"
+rootProject.name = "rrpc"
 
 includeBuild("build-conventions")
 
-include(":common-core", ":server-core", ":client-core")
-include(":code-generator")
-include(":gradle-plugin")
+include(
+    ":common:core",
+    ":common:schema",
+    ":common:core:java-support",
+)
+
+include(
+    ":server:core",
+    ":server:schema",
+)
+
+include(
+    ":client:core",
+    ":client:schema",
+)
+
+include(":integration-tests")
+
+include(
+    ":tooling:rrpc-testing-app",
+)
+
+//include(
+//    ":internal:dynamic-serialization"
+//)
